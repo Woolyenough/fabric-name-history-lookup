@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "namelookup",
+  "version": "${version}",
+
+  "name": "NameMC Intergration Mod",
+  "description": "Provides easy access to looking people in your game up on NameMC.com",
+  "authors": [
+    "Woolyenough (SRNOs)"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "https://github.com/Woolyenough/fabric-namemc-intergration/"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/namelookup/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.woolyenough.playerlookup.NameLookup"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.16.x",
+    "java": ">=8"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
