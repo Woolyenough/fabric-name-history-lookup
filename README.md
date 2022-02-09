@@ -1,8 +1,8 @@
 # fabric-name-history-lookup
-An extremely simple and lightweight fabric mod which provides easy access to looking people in your game up on NameMC.com
+An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories 
 
 # Supported versions
-Made for 1.16.x, however, can be self compiled for newer versions
+Made for 1.16+, however, can be self compiled for other versions (if they work)
 
 ---
 Discord: woolyenough#7103
