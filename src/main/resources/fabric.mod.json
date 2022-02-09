@@ -3,23 +3,23 @@
   "id": "namelookup",
   "version": "${version}",
 
-  "name": "NameMC Intergration Mod",
+  "name": "Name History Lookup Mod",
   "description": "Provides easy access to looking people in your game up on NameMC.com",
   "authors": [
     "Woolyenough (SRNOs)"
   ],
   "contact": {
     "homepage": "",
-    "sources": "https://github.com/Woolyenough/fabric-namemc-intergration/"
+    "sources": "https://github.com/Woolyenough/fabric-name-history-lookup/"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/namelookup/icon.png",
+  "icon": "assets/woolyenough/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.woolyenough.playerlookup.NameLookup"
+      "net.woolyenough.namehistory.NameLookup"
     ]
   },
   "mixins": [
