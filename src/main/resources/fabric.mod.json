@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "namelookup",
+  "id": "playernamehistorylookup",
   "version": "${version}",
 
-  "name": "Name History Lookup Mod",
-  "description": "Provides easy access to looking people in your game up on NameMC.com",
+  "name": "Player Name History Lookup",
+  "description": "An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories",
   "authors": [
     "Woolyenough (SRNOs)"
   ],
@@ -18,15 +18,15 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.woolyenough.namehistory.NameLookup"
+    "client": [
+      "net.woolyenough.namehistory.ClientCommands"
     ]
   },
   "mixins": [
   ],
 
   "depends": {
-    "fabricloader": ">=0.12.12",
+    "fabricloader": ">=0.12.0",
     "fabric": "*",
     "minecraft": ">=1.16",
     "java": ">=8"
