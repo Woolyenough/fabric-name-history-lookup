@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.woolyenough.namehistory.ClientCommands"
+      "net.woolyenough.namelookup.ClientCommands"
     ]
   },
   "mixins": [
