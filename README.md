@@ -1,8 +1,22 @@
-# fabric-name-history-lookup
-An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories 
+# Name History Lookup (for Fabric)
+An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories.
 
-# Supported versions
+## Features
+* Use `/lookup <Player Name>` to look up player's name history.
+
+## Supported versions
 Made for 1.16+, however, can be self compiled for other versions (if they work)
 
+
 ---
-Discord: woolyenough#7103
+# Building from sources
+This mod can be built by simply running the default `build` task.
+
+
+---
+# Contacts
+* **Discord**: `woolyenough#7103`
+
+---
+# License
+[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
