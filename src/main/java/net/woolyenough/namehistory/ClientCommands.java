@@ -37,8 +37,11 @@ public final class ClientCommands implements ClientModInitializer {
             switch (nameHistory.get(i)) {
                 case "name": {
                     i++;
-                    output.append("\n§r§b");
-                    if (Objects.equals(nameHistory.get(i), name)) output.append("§a");
+                    if (nameHistory.get(i).toLowerCase().equals(name))
+                        output.append("\n§r§a");
+                    else
+                        output.append("\n§r§b");
+                    
                     output.append(nameHistory.get(i));
                     break;
                 }
