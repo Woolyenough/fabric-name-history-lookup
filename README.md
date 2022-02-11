@@ -1,9 +1,9 @@
-# Name History Lookup (for Fabric)
+# Player Name History Lookup (for Fabric)
 An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories.
 
 ## Features
 * Use `/lookup <Player Name>` to look up player's name history.
-* Use `/namemc <Player Name>` to get a link to NameMC page.
+* Use `/namemc <Player Name>` to get a link to one's NameMC page.
 
 ## Supported versions
 Made for 1.16+, however, can be self compiled for other versions (if they work)
@@ -11,7 +11,7 @@ Made for 1.16+, however, can be self compiled for other versions (if they work)
 
 ---
 # Building from sources
-This mod can be built by simply running the default `build` task.
+This mod can be built by running the default `gradlew build` command.
 
 
 ---
