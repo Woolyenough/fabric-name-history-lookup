@@ -3,6 +3,7 @@ An extremely simple and lightweight fabric mod which provides easy access for lo
 
 ## Features
 * Use `/lookup <Player Name>` to look up player's name history.
+* Use `/namemc <Player Name>` to get a link to NameMC page.
 
 ## Supported versions
 Made for 1.16+, however, can be self compiled for other versions (if they work)
