@@ -10,8 +10,9 @@ Made for 1.16+, however, can be self compiled for other versions (if they work)
 
 
 ---
-# Building from sources
-This mod can be built by running the default `gradlew build` command.
+# Installation
+This mod can be self compiled by running the standard `gradlew build` command.
+Alternatively, you can download latest updates from the [releases page](https://github.com/Woolyenough/fabric-name-history-lookup/releases)
 
 
 ---
