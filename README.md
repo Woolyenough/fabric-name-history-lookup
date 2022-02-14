@@ -2,8 +2,8 @@
 An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories.
 
 ## Features
-* Use `/lookup <Player Name>` to look up player's name history.
-* Use `/namemc <Player Name>` to get a link to one's NameMC page.
+* Use `/names <Player Name>` to look up player's name history.
+* Use `/nmc <Player Name>` to get a link to one's NameMC page.
 
 ## Supported versions
 Made for 1.16+, however, can be self compiled for other versions (if they work)
