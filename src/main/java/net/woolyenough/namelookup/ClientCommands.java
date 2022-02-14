@@ -1,5 +1,6 @@
 package net.woolyenough.namelookup;
 
+import com.mojang.authlib.yggdrasil.response.Response;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -19,11 +20,12 @@ public final class ClientCommands implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("namemc")
-                .then(ClientCommandManager.argument("Player Name", StringArgumentType.string())
+        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("nmc")
+                .then(ClientCommandManager.argument("Username", StringArgumentType.string())
                         .executes(context -> {
 
-                            String name = String.valueOf(StringArgumentType.getString(context, "Player Name"));
+                            String name = String.valueOf(StringArgumentType.getString(context, "Username"));
+
                             String[] playerNameAndUUID = MojangAPI.get_player_name_and_uuid(name);
 
                             String username = playerNameAndUUID[0];
@@ -43,11 +45,11 @@ public final class ClientCommands implements ClientModInitializer {
                             return 0;
                         })));
 
-        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("lookup")
-                .then(ClientCommandManager.argument("Player Name", StringArgumentType.string())
+        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("names")
+                .then(ClientCommandManager.argument("Username", StringArgumentType.string())
                         .executes(context -> {
 
-                            String name = String.valueOf(StringArgumentType.getString(context, "Player Name"));
+                            String name = String.valueOf(StringArgumentType.getString(context, "Username"));
 
                             String[] playerNameAndUUID = MojangAPI.get_player_name_and_uuid(name);
 
@@ -63,7 +65,7 @@ public final class ClientCommands implements ClientModInitializer {
 
                                     style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://namemc.com/profile/" + username))
                                             .withHoverEvent(new HoverEvent(
-                                                    HoverEvent.Action.SHOW_TEXT, new LiteralText(MojangAPI.get_player_name_history(username, uuid) + "\n\n§rClick to open NameMC!"))
+                                                    HoverEvent.Action.SHOW_TEXT, MojangAPI.get_player_name_history(username, uuid).append(new LiteralText("\n\n§7§oClick to open in NameMC!")))
                                             )));
                             return 0;
                         })));

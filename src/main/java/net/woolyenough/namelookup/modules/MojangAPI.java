@@ -3,6 +3,8 @@ package net.woolyenough.namelookup.modules;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.TextColor;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -61,38 +63,48 @@ public class MojangAPI {
     }
 
 
-    public static String get_player_name_history(String name, String uuid) {
+    public static LiteralText get_player_name_history(String name, String uuid) {
 
         List<String> playerNameHistory = new ArrayList<>(Arrays.asList(MojangAPI.get_raw_response("user/profiles/" + uuid + "/names").split("[\\[\\]{}\",:]")));
         playerNameHistory.removeAll(Arrays.asList("", null, " ", ":"));
-        StringBuilder output = new StringBuilder();
+        //StringBuilder output = new StringBuilder();
+        LiteralText output = new LiteralText("");
 
         for (int i = 0; i < playerNameHistory.size(); i++) {
             switch (playerNameHistory.get(i)) {
                 case "name": {
                     i++;
+                    //If the person has used their current name in previous name changes, this prevents them from also turning green
+                    if (playerNameHistory.get(i).toLowerCase().equals(name.toLowerCase()) && (i >= playerNameHistory.size()-3)) {
+                        if (i == 1){output.append(new LiteralText("§r§l"+playerNameHistory.get(i))
+                                .styled(style -> style.withColor(TextColor.fromRgb(0x6ED878)))
+                                .append(new LiteralText("§r  (Original name)")
+                                        .styled(style -> style.withColor(TextColor.fromRgb(0xBFB8D5)))));}
 
-                    if (playerNameHistory.get(i).equals(name)) {
-                        if (i == 1) output.append("§r§a§l");
-                        else output.append("\n§r§a§l");
+                        else output.append(new LiteralText("\n§r§l"+playerNameHistory.get(i))
+                                .styled(style -> style.withColor(TextColor.fromRgb(0x6ED878))));
                     }
                     else {
-                        if (i == 1) output.append("§r§b");
-                        else output.append("\n§r§b");
-                    }
+                        if (i == 1) {//First name in list
+                            output.append(new LiteralText("§r"+playerNameHistory.get(i))
+                                    .styled(style -> style.withColor(TextColor.fromRgb(0x67AAEC)))
+                                    .append(new LiteralText("§r  (Original name)")
+                                            .styled(style -> style.withColor(TextColor.fromRgb(0xBFB8D5)))));}
 
-                    output.append(playerNameHistory.get(i));
+                        else {output.append(new LiteralText("\n§r"+playerNameHistory.get(i)).styled(style -> style.withColor(TextColor.fromRgb(0x67AAEC))));}
+                    }
                     break;
                 }
                 case "changedToAt": {
                     i++;
-                    DateFormat simple = new SimpleDateFormat("dd MMM yyyy (HH:mm)");
+                    DateFormat simple = new SimpleDateFormat("dd.MM.yyyy • HH:mm");
                     Date result = new Date(Long.parseLong(playerNameHistory.get(i)));
-                    output.append("  §r§7").append(simple.format(result));
+                    output.append(new LiteralText("  §r§o"+simple.format(result))
+                            .styled(style -> style.withColor(TextColor.fromRgb(0x4A143F))));
                     break;
                 }
             }
         }
-        return output.toString();
+        return output;
     }
 }

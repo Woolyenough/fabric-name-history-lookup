@@ -18,6 +18,7 @@ Alternatively, you can download latest updates from the [releases page](https://
 ---
 # Contacts
 * **Discord**: `woolyenough#7103`
+* **Support Server**: discord.gg/ErnePFCz6n
 
 ---
 # License
