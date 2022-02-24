@@ -19,7 +19,3 @@ Alternatively, you can download latest updates from the [releases page](https://
 # Contacts
 * **Discord**: `woolyenough#7103`
 * **Support Server**: [Woolyenough Discord Server](https://discord.gg/ErnePFCz6n)
-
----
-# License
-[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
