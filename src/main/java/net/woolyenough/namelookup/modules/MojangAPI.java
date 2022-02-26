@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TextColor;
+import net.minecraft.util.Util;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -12,6 +13,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 public class MojangAPI {
     public static String get_raw_response(String api_url) {
@@ -40,6 +42,7 @@ public class MojangAPI {
 
 
     public static String[] get_player_name_and_uuid(String name){
+
         String[] playerNameAndUUID = new String[2];
 
         String nameAndUUIDJson = get_raw_response("users/profiles/minecraft/" + name);
@@ -59,15 +62,15 @@ public class MojangAPI {
 
         playerNameAndUUID[0] = jsonObject.get("name").getAsString();
         playerNameAndUUID[1] = jsonObject.get("id").getAsString();
+
         return playerNameAndUUID;
     }
 
 
     public static LiteralText get_player_name_history(String name, String uuid) {
 
-        List<String> playerNameHistory = new ArrayList<>(Arrays.asList(MojangAPI.get_raw_response("user/profiles/" + uuid + "/names").split("[\\[\\]{}\",:]")));
+        List<String> playerNameHistory = new ArrayList<>(Arrays.asList(get_raw_response("user/profiles/" + uuid + "/names").split("[\\[\\]{}\",:]")));
         playerNameHistory.removeAll(Arrays.asList("", null, " ", ":"));
-        //StringBuilder output = new StringBuilder();
         LiteralText output = new LiteralText("");
 
         for (int i = 0; i < playerNameHistory.size(); i++) {
