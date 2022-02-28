@@ -32,9 +32,13 @@ public final class ClientCommands implements ClientModInitializer {
                 .then(ClientCommandManager.argument("Username", StringArgumentType.string())
                         .executes(ClientCommands::names)));
 
-        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("nmc")
+        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("namemc")
                 .then(ClientCommandManager.argument("Username", StringArgumentType.string())
                         .executes(ClientCommands::namemc)));
+    
+        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("nm")
+        .then(ClientCommandManager.argument("Username", StringArgumentType.string())
+                .executes(ClientCommands::namemc)));
     }
 
     private static int names(CommandContext<FabricClientCommandSource> context) {
