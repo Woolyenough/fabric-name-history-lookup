@@ -28,7 +28,7 @@ public final class ClientCommands implements ClientModInitializer {
                 .then(ClientCommandManager.argument("Username", StringArgumentType.string())
                         .executes(ClientCommands::names)));
 
-        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("n") //Alias
+        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("n")
                 .then(ClientCommandManager.argument("Username", StringArgumentType.string())
                         .executes(ClientCommands::names)));
 
@@ -78,7 +78,7 @@ public final class ClientCommands implements ClientModInitializer {
             //String uuid = playerNameAndUUID[1];   right now useless ¯\_(ツ)_/¯
 
             if (Objects.equals(username, "None")){
-                context.getSource().sendFeedback(new LiteralText("§7[Click] §eSearch " + name + " on NameMC §c§o(account not found)")
+                context.getSource().sendFeedback(new LiteralText("§7[Click] §eSearch " + name + " on NameMC §c§o(account does not exist)")
                         .styled(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://namemc.com/profile/" + name))
                                 .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new LiteralText(name + "\n\n§7§oClick to open NameMC")))));
             }else{
