@@ -12,7 +12,7 @@ Made for 1.16+, however, can be self compiled for other versions (if they work)
 ---
 # Installation
 This mod can be self compiled by running the standard `gradlew build` command.
-Alternatively, you can download latest updates from [modrinth](https://modrinth.com/mod/name-history-viewer)
+Alternatively, you can download the more recent releases from [modrinth](https://modrinth.com/mod/name-history-viewer)
 
 
 ---
