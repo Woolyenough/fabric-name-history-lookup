@@ -16,6 +16,10 @@ Alternatively, you can download the more recent releases from [modrinth](https:/
 
 
 ---
+# Example
+An image of the menu it shows of a player's name history:
+![This is an image](https://raw.githubusercontent.com/Woolyenough/fabric-name-history-lookup/main/example.png)
+---
 # Contacts
 * **Discord**: `woolyenough#7103`
 * **Support Server**: [Woolyenough Discord Server](https://discord.gg/ErnePFCz6n)
