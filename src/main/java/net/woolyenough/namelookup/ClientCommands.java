@@ -1,17 +1,15 @@
 package net.woolyenough.namelookup;
 
-import com.mojang.authlib.yggdrasil.response.Response;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v1.FabricClientCommandSource;
+import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.HoverEvent;
 import net.minecraft.text.LiteralText;
-import net.minecraft.util.Util;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -25,26 +23,26 @@ public final class ClientCommands implements ClientModInitializer {
     public void onInitializeClient() {
 
         ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("names")
-                .then(ClientCommandManager.argument("Username", StringArgumentType.string())
+                .then(ClientCommandManager.argument("Username", EntityArgumentType.player())
                         .executes(ClientCommands::names)));
 
         ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("n")
-                .then(ClientCommandManager.argument("Username", StringArgumentType.string())
+                .then(ClientCommandManager.argument("Username", EntityArgumentType.player())
                         .executes(ClientCommands::names)));
 
         ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("namemc")
-                .then(ClientCommandManager.argument("Username", StringArgumentType.string())
+                .then(ClientCommandManager.argument("Username", EntityArgumentType.player())
                         .executes(ClientCommands::namemc)));
-    
+
         ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("nm")
-        .then(ClientCommandManager.argument("Username", StringArgumentType.string())
-                .executes(ClientCommands::namemc)));
+                .then(ClientCommandManager.argument("Username", EntityArgumentType.player())
+                        .executes(ClientCommands::namemc)));
     }
 
     private static int names(CommandContext<FabricClientCommandSource> context) {
         CompletableFuture.runAsync(()->{
 
-            String name = String.valueOf(StringArgumentType.getString(context, "Username"));
+            String name = context.getInput().split(" ")[1];
 
             String[] playerNameAndUUID = get_player_name_and_uuid(name);
 
@@ -70,12 +68,12 @@ public final class ClientCommands implements ClientModInitializer {
 
         CompletableFuture.runAsync(()->{
 
-            String name = String.valueOf(StringArgumentType.getString(context, "Username"));
+            String name = context.getInput().split(" ")[1];
 
             String[] playerNameAndUUID = get_player_name_and_uuid(name);
 
             String username = playerNameAndUUID[0];
-            //String uuid = playerNameAndUUID[1];   right now useless ¯\_(ツ)_/¯
+            //String uuid = playerNameAndUUID[1];  useless for this command ¯\_(ツ)_/¯
 
             if (Objects.equals(username, "None")){
                 context.getSource().sendFeedback(new LiteralText("§7[Click] §eSearch " + name + " on NameMC §c§o(account does not exist)")
