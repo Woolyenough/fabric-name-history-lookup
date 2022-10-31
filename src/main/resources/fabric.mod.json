@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "playernamehistorylookup",
+  "version": "${version}",
+
+  "name": "Player Name History Lookup",
+  "description": "An extremely simple and lightweight fabric mod which provides easy access for looking at player name histories",
+  "authors": [
+    "Woolyenough (SRNOs)"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "https://github.com/Woolyenough/fabric-name-history-lookup/"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/woolyenough/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.woolyenough.namelookup.ClientCommands"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "fabric": "*",
+    "minecraft": ">=1.16",
+    "java": ">=8"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
