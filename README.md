@@ -34,5 +34,4 @@ An image of the menu it shows of a player's name history:
 
 ---
 # Contacts
-* **Discord**: `woolyenough#7103`
-* **Support Server**: [Woolyenough Discord Server](https://discord.gg/ErnePFCz6n)
+* **Discord**: `woolyenough#0045`
